@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  pool: 5
+  database: freshbooks_callback
+  host: localhost
+  user: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || 5 %>
