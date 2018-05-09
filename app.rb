@@ -8,7 +8,8 @@ class Log < ActiveRecord::Base
 end
 
 get '/' do
-  Log.all.map(&:to_s)
+  content_type :json
+  Log.pluck(:content).reverse.map{ |c| JSON.parse(c) }.to_json
 end
 
 post '/callback' do
