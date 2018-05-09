@@ -12,6 +12,11 @@ get '/' do
   Log.pluck(:content).reverse.map{ |c| JSON.parse(c) }.to_json
 end
 
+get '/clear' do
+  Log.delete_all
+  Log.pluck(:content).reverse.map{ |c| JSON.parse(c) }.to_json
+end
+
 post '/callback' do
   Log.create(name: params[:name], content: params.to_json)
 end
