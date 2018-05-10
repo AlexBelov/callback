@@ -1,5 +1,6 @@
 require 'sinatra'
 require "sinatra/activerecord"
+require 'pry'
 
 class Log < ActiveRecord::Base
   def to_s
